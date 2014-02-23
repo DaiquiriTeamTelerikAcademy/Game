@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Common
+﻿namespace Game.Common
 {
+    using System;
+
     public interface IUserInput
     {
         event EventHandler OnLeftPressed;
@@ -14,6 +10,6 @@ namespace Game.Common
 
         event EventHandler OnActionPressed;
 
-        void ProcessInput();//proverqva dali i natisnato nalqvo ili nadqsno i ako e producira sabitieto OnRightPressed .....
+        void ProcessInput();//proverqva dali i natisnato nalqvo ili nadqsno i ako e producira sabitieto OnRightPressed ....
     }
 }
