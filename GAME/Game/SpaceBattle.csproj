@@ -41,12 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Common\CollisionDetector.cs" />
+    <Compile Include="Common\Coordinates.cs" />
+    <Compile Include="Common\DrawText.cs" />
+    <Compile Include="Common\Enemy\BigBomb.cs" />
+    <Compile Include="Common\Enemy\Bomb.cs" />
+    <Compile Include="Common\Enemy\EnemyShip.cs" />
+    <Compile Include="Common\Enemy\SmallBomb.cs" />
+    <Compile Include="Common\GameOverScreen.cs" />
+    <Compile Include="Common\IDrawable.cs" />
+    <Compile Include="Common\ObjectTypeEnum.cs" />
+    <Compile Include="Common\Player\PlayerAircraft.cs" />
+    <Compile Include="Common\Player\Shot.cs" />
+    <Compile Include="Common\StartScreen.cs" />
+    <Compile Include="Executable\SpaceBattleMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="SpaceBattleDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
