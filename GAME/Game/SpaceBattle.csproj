@@ -49,7 +49,9 @@
     <Compile Include="Common\Enemy\EnemyShip.cs" />
     <Compile Include="Common\Enemy\SmallBomb.cs" />
     <Compile Include="Common\GameOverScreen.cs" />
-    <Compile Include="Common\IDrawable.cs" />
+    <Compile Include="Common\IRenderable.cs" />
+    <Compile Include="Common\IRender.cs" />
+    <Compile Include="Common\MatrixCoords.cs" />
     <Compile Include="Common\ObjectTypeEnum.cs" />
     <Compile Include="Common\Player\PlayerAircraft.cs" />
     <Compile Include="Common\Player\Shot.cs" />
