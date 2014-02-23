@@ -1,6 +1,8 @@
 ﻿namespace Game.Common.Enemy
 {
-    public abstract class Bomb
+    using Game.Common;
+
+    public abstract class Bomb : MovingObject
     {
     }
 }

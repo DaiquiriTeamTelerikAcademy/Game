@@ -1,6 +1,8 @@
 ﻿namespace Game.Common.Enemy
 {
-    public class EnemyShip
+    using Game.Common;
+
+    public class EnemyShip : GameObject
     {
     }
 }
