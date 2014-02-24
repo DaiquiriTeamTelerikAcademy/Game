@@ -8,7 +8,7 @@ namespace Game.Common
 {
     public abstract class GameObject : IRenderable,IColidable
     {
-        public const string CollisionGroupString = "object";//difinirano deistvie pri udar
+        public const string CollisionGroupString = "object";//definirano deistvie pri udar
         protected MatrixCoords topLeft;
         public MatrixCoords TopLeft//poziciq
         {
@@ -27,7 +27,7 @@ namespace Game.Common
 
         public bool IsDestroyed { get; protected set; }//dali obekta e udaren
 
-        protected GameObject(MatrixCoords topLeft, char[,] body)
+        protected GameObject(MatrixCoords topLeft, char[,] body)//TODO: string type
         {
             this.TopLeft = topLeft;
             int imageRows = body.GetLength(0);

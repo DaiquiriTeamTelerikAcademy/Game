@@ -8,7 +8,7 @@
 
         public EnemyShip(MatrixCoords topLeft) : base(topLeft, new char[,] { { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', } }) { }
 
-        public override void Update()//move
+        public override void Update()//move  TODO: da vra6ta prazen spisak
         {
             
         }

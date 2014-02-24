@@ -4,7 +4,7 @@
     {
         public MatrixCoords Speed { get; protected set; }
 
-        public MovingObject(MatrixCoords topLeft, char[,] body, MatrixCoords speed)
+        public MovingObject(MatrixCoords topLeft, char[,] body, MatrixCoords speed) //TODO:string type 
             : base(topLeft, body)
         {
             this.Speed = speed;
