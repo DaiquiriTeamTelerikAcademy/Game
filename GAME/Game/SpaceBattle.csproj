@@ -46,7 +46,6 @@
     <Compile Include="Common\ConsoleRenderer.cs" />
     <Compile Include="Common\Coordinates.cs" />
     <Compile Include="Common\Enemy\BigBomb.cs" />
-    <Compile Include="Common\Enemy\Bomb.cs" />
     <Compile Include="Common\Enemy\EnemyShip.cs" />
     <Compile Include="Common\Enemy\SmallBomb.cs" />
     <Compile Include="Common\GameObject.cs" />
