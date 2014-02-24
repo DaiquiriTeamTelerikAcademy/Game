@@ -1,10 +1,10 @@
 ﻿namespace Game.Common.Player
 {
-    public class Shot : MovingObject
+    public class Shot : GameObject
     {
         public new const string CollisionGroupString = "shot";
 
-        public Shot(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '|' } }, speed) { }
+        public Shot(MatrixCoords topLeft,char[,] body) : base(topLeft, new char[,] { { '|' } }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
@@ -19,6 +19,11 @@
         public override void RespondToCollision(CollisionData collisionData)//kurshuma iz4ezva
         {
             this.IsDestroyed = true;
+        }
+
+        public override void Move()
+        {
+            this.topLeft.Col--;
         }
     }
 }

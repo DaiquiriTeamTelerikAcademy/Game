@@ -1,10 +1,10 @@
 ﻿namespace Game.Common.Player
 {
-    public class PlayerAircraft : MovingObject
+    public class PlayerAircraft : GameObject
     {
         public new const string CollisionGroupString = "aircraft";
 
-        public PlayerAircraft(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }, speed) { }
+        public PlayerAircraft(MatrixCoords topLeft, char[,] body) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
@@ -19,6 +19,20 @@
         public override void RespondToCollision(CollisionData collisionData)
         {
             this.IsDestroyed = true;
+        }
+
+        public void MoveLeft()
+        {
+            this.topLeft.Col--;
+        }
+
+        public void MoveRight()
+        {
+            this.topLeft.Col++;
+        }
+
+        public override void Move()
+        {
         }
     }
 }

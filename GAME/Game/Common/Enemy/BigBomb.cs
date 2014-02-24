@@ -1,10 +1,10 @@
 ﻿namespace Game.Common.Enemy
 {
-    public class BigBomb : MovingObject
+    public class BigBomb : Bomb
     {
         public new const string CollisionGroupString = "big bomb";
 
-        public BigBomb(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '*','*','*' } }, speed) { }
+        public BigBomb(MatrixCoords topLeft,char[,] body) : base(topLeft, new char[,] { { '*', '*', '*' } }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
@@ -14,11 +14,6 @@
         public override string GetCollisionGroupString()
         {
             return SmallBomb.CollisionGroupString;
-        }
-
-        public override void RespondToCollision(CollisionData collisionData)
-        {
-            this.IsDestroyed = true;
         }
     }
 }

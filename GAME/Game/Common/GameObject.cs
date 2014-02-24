@@ -36,7 +36,7 @@ namespace Game.Common
             this.IsDestroyed = false;
         }
 
-        public abstract void Update();//ne6toto koeto pravi sledva6toto dvijenie    //TODO: dali da vra6ta List<GameObject>
+        public abstract void Move();//ne6toto koeto pravi sledva6toto dvijenie    //TODO: dali da vra6ta List<GameObject>
 
         public virtual void RespondToCollision(CollisionData collisionData)//kazva na obekta 4e e udaren i 4e trqbva da reagira
         {
