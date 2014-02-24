@@ -45,7 +45,6 @@
     <Compile Include="Common\CollisionDetector.cs" />
     <Compile Include="Common\ConsoleRenderer.cs" />
     <Compile Include="Common\Coordinates.cs" />
-    <Compile Include="Common\DrawText.cs" />
     <Compile Include="Common\Enemy\BigBomb.cs" />
     <Compile Include="Common\Enemy\Bomb.cs" />
     <Compile Include="Common\Enemy\EnemyShip.cs" />

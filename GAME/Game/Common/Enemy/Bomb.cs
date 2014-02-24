@@ -2,7 +2,7 @@
 {
     using Game.Common;
 
-    public abstract class Bomb : MovingObject
+    public abstract class Bomb //: MovingObject
     {
     }
 }

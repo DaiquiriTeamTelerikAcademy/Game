@@ -79,10 +79,6 @@ namespace Game.Common
             return this.CopyBodyMatrix(this.body);
         }
 
-        public void RespondToCollision(CollisionData collisionData)//kazva na obekta 4e e udaren i 4e trqbva da reagira
-        {
-        }
-
         //public virtual List<MatrixCoords> GetCollisionProfile()
         //{
         //    List<MatrixCoords> profile = new List<MatrixCoords>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Common
 {
-    class MatrixCoords
+    public class MatrixCoords
     {
         public int Row { get; set; }
         public int Col { get; set; }
@@ -15,6 +15,11 @@ namespace Game.Common
         {
             this.Row = row;
             this.Col = col;
+        }
+
+        public static MatrixCoords operator +(MatrixCoords a, MatrixCoords b)
+        {
+            return new MatrixCoords(a.Row + b.Row, a.Col + b.Col);
         }
     }
 }
