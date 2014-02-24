@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Common\CollisionData.cs" />
     <Compile Include="Common\CollisionDetector.cs" />
+    <Compile Include="Common\ConsoleRenderer.cs" />
     <Compile Include="Common\Coordinates.cs" />
     <Compile Include="Common\DrawText.cs" />
     <Compile Include="Common\Enemy\BigBomb.cs" />
@@ -54,7 +55,7 @@
     <Compile Include="Common\IColidable.cs" />
     <Compile Include="Common\KeyboardInput.cs" />
     <Compile Include="Common\IRenderable.cs" />
-    <Compile Include="Common\IRender.cs" />
+    <Compile Include="Common\IRenderer.cs" />
     <Compile Include="Common\IUserInput.cs" />
     <Compile Include="Common\MatrixCoords.cs" />
     <Compile Include="Common\MovingObject.cs" />

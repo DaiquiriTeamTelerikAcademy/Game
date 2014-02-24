@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Common
 {
-    public interface IRender
+    public interface IRenderer
     {
         void EnqueueForRendering(IRenderable obj);//kazva ei tova trqbva da se narisuva v sledwa6tiq kadar
 

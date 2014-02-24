@@ -8,6 +8,7 @@ namespace Game.Common
 {
     public abstract class GameObject : IRenderable,IColidable
     {
+        public const string CollisionGroupString = "object";//difinirano deistvie pri udar
         protected MatrixCoords topLeft;
         public MatrixCoords TopLeft//poziciq
         {
@@ -29,16 +30,28 @@ namespace Game.Common
         protected GameObject(MatrixCoords topLeft, char[,] body)
         {
             this.TopLeft = topLeft;
-
             int imageRows = body.GetLength(0);
             int imageCols = body.GetLength(1);
-
             this.body = this.CopyBodyMatrix(body);
-
             this.IsDestroyed = false;
         }
 
-        char[,] CopyBodyMatrix(char[,] matrixToCopy)
+        public abstract void Update();//ne6toto koeto pravi sledva6toto dvijenie    //TODO: dali da vra6ta List<GameObject>
+
+        public virtual void RespondToCollision(CollisionData collisionData)//kazva na obekta 4e e udaren i 4e trqbva da reagira
+        {
+        }
+        public virtual bool CanCollideWith(string otherCollisionGroupString) //tova ne mi trqbva
+        {
+            return GameObject.CollisionGroupString == otherCollisionGroupString;
+        }
+
+        public virtual string GetCollisionGroupString()
+        {
+            return GameObject.CollisionGroupString;
+        }
+
+        char[,] CopyBodyMatrix(char[,] matrixToCopy)//vzema tqloto na matrica i go kopira TODO : public
         {
             int rows = matrixToCopy.GetLength(0);
             int cols = matrixToCopy.GetLength(1);
@@ -58,22 +71,34 @@ namespace Game.Common
 
         public MatrixCoords GetTopLeft()
         {
-            throw new NotImplementedException();
+            return this.TopLeft;
         }
 
-        public char[,] GetImage()
+        public char[,] GetImage()////vra6ta kak izglejda obekta
         {
-            throw new NotImplementedException();
+            return this.CopyBodyMatrix(this.body);
         }
 
-        public List<MatrixCoords> GetCollisionProfile()
+        public void RespondToCollision(CollisionData collisionData)//kazva na obekta 4e e udaren i 4e trqbva da reagira
         {
-            throw new NotImplementedException();
         }
 
-        public void RespondToCollision(CollisionData collisionData)
-        {
-            throw new NotImplementedException();
-        }
+        //public virtual List<MatrixCoords> GetCollisionProfile()
+        //{
+        //    List<MatrixCoords> profile = new List<MatrixCoords>();
+
+        //    int bodyRows = this.body.GetLength(0);
+        //    int bodyCols = this.body.GetLength(1);
+
+        //    for (int row = 0; row < bodyRows; row++)
+        //    {
+        //        for (int col = 0; col < bodyCols; col++)
+        //        {
+        //            profile.Add(new MatrixCoords(row + this.topLeft.Row, col + this.topLeft.Col));
+        //        }
+        //    }
+
+        //    return profile;
+        //}
     }
 }
