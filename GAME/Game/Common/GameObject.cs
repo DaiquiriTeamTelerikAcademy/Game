@@ -79,22 +79,22 @@ namespace Game.Common
             return this.CopyBodyMatrix(this.body);
         }
 
-        //public virtual List<MatrixCoords> GetCollisionProfile()
-        //{
-        //    List<MatrixCoords> profile = new List<MatrixCoords>();
+        public virtual List<MatrixCoords> GetCollisionProfile()
+        {
+            List<MatrixCoords> profile = new List<MatrixCoords>();
 
-        //    int bodyRows = this.body.GetLength(0);
-        //    int bodyCols = this.body.GetLength(1);
+            int bodyRows = this.body.GetLength(0);
+            int bodyCols = this.body.GetLength(1);
 
-        //    for (int row = 0; row < bodyRows; row++)
-        //    {
-        //        for (int col = 0; col < bodyCols; col++)
-        //        {
-        //            profile.Add(new MatrixCoords(row + this.topLeft.Row, col + this.topLeft.Col));
-        //        }
-        //    }
+            for (int row = 0; row < bodyRows; row++)
+            {
+                for (int col = 0; col < bodyCols; col++)
+                {
+                    profile.Add(new MatrixCoords(row + this.topLeft.Row, col + this.topLeft.Col));
+                }
+            }
 
-        //    return profile;
-        //}
+            return profile;
+        }
     }
 }

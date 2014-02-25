@@ -4,7 +4,7 @@
     {
         public new const string CollisionGroupString = "aircraft";
 
-        public PlayerAircraft(MatrixCoords topLeft, char[,] body) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
+        public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {

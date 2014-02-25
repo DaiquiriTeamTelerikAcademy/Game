@@ -42,9 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CollisionData.cs" />
-    <Compile Include="Common\CollisionDetector.cs" />
+    <Compile Include="Common\CollisionDispatcher.cs" />
     <Compile Include="Common\ConsoleRenderer.cs" />
-    <Compile Include="Common\Coordinates.cs" />
     <Compile Include="Common\Enemy\BigBomb.cs" />
     <Compile Include="Common\Enemy\Bomb.cs" />
     <Compile Include="Common\Enemy\EnemyShip.cs" />
@@ -58,6 +57,7 @@
     <Compile Include="Common\IRenderer.cs" />
     <Compile Include="Common\IUserInput.cs" />
     <Compile Include="Common\MatrixCoords.cs" />
+    <Compile Include="Common\MovingObject.cs" />
     <Compile Include="Common\ObjectTypeEnum.cs" />
     <Compile Include="Common\Player\PlayerAircraft.cs" />
     <Compile Include="Common\Player\Shot.cs" />

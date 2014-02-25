@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game.Common.Enemy
 {
-    public class Bomb : GameObject
+    public class Bomb : MovingObject
     {
-        public Bomb(MatrixCoords topLeft, char[,] body) : base(topLeft, body) { }
+        public Bomb(MatrixCoords topLeft, char[,] body, MatrixCoords speed) : base(topLeft, body,speed) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
@@ -18,11 +18,6 @@ namespace Game.Common.Enemy
         public override void RespondToCollision(CollisionData collisionData)
         {
             this.IsDestroyed = true;
-        }
-
-        public override void Move()
-        {
-            this.topLeft.Row++;
         }
     }
 }

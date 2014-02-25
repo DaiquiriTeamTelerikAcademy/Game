@@ -15,7 +15,7 @@
 
         public override void RespondToCollision(CollisionData collisionData)//kakvo pravq kato se sblaskam
         {
-            this.IsDestroyed = false;
+            this.IsDestroyed = true;
         }
 
         public override string GetCollisionGroupString()
