@@ -1,10 +1,12 @@
 ﻿namespace Game.Common.Player
 {
     using Game.Common;
+    using System.Collections.Generic;
 
     public class Shot : MovingObject
     {
         public new const string CollisionGroupString = "shot";
+
 
         public Shot(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '|' } },speed) { }
 
@@ -22,5 +24,9 @@
         {
             //this.IsDestroyed = false;
         }
+
+        
+
+        
     }
 }

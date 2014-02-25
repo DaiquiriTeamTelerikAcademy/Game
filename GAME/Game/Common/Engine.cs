@@ -11,7 +11,7 @@
         List<GameObject> allObjects;
         List<MovingObject> movingObjects;
         List<GameObject> staticObjects;
-        PlayerAircraft aircraft;
+        protected PlayerAircraft aircraft;
 
         public Engine(IRenderer renderer, IUserInput userInterface)
         {
@@ -54,21 +54,32 @@
             }
         }
 
+        private void RemoveRacket()
+        {
+            this.staticObjects.RemoveAll(obj => obj is PlayerAircraft);
+            this.allObjects.RemoveAll(obj => obj is PlayerAircraft);
+        }
+
         private void AddRacket(GameObject obj)
         {
-            //TODO: we should remove the previous racket from this.allObjects
+            RemoveRacket();
             this.aircraft = obj as PlayerAircraft;
             this.AddStaticObject(obj);
         }
 
-        public virtual void MovePlayerRacketLeft()
+        public virtual void MovePlayerAircraftLeft()
         {
             this.aircraft.MoveLeft();
         }
 
-        public virtual void MovePlayerRacketRight()
+        public virtual void MovePlayerAircraftRight()
         {
             this.aircraft.MoveRight();
+        }
+
+        public virtual void AircraftShoot()
+        {
+            this.aircraft.Fire();
         }
 
         public virtual void Run()
@@ -90,10 +101,20 @@
                 }
 
                 CollisionDispatcher.HandleCollisions(this.movingObjects, this.staticObjects);
+                List<GameObject> producedObjects = new List<GameObject>();//gleda dali ima prod. obekti
+                foreach (var obj in this.allObjects)
+                {
+                    producedObjects.AddRange(obj.ProduceObjects());
+                }
 
                 this.allObjects.RemoveAll(obj => obj.IsDestroyed);//iztriva obektite koito sa ubiti
                 this.movingObjects.RemoveAll(obj => obj.IsDestroyed);
                 this.staticObjects.RemoveAll(obj => obj.IsDestroyed);
+
+                foreach (var obj in producedObjects)//dobavq produciranite obekti
+                {
+                    this.AddObject(obj);
+                }
             }
         }
     }

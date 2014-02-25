@@ -21,9 +21,9 @@
             engine.AddObject(ship);
             PlayerAircraft aircraft = new PlayerAircraft(new MatrixCoords(WorldRows - 1, WorldCols / 2));
             engine.AddObject(aircraft);
-            Shot shot = new Shot(new MatrixCoords(15, 5), new MatrixCoords(-1, 0));
-            shot.Move();
-            engine.AddObject(shot);
+            //Shot shot = new Shot(new MatrixCoords(15, 5), new MatrixCoords(-1, 0));
+            //shot.Move();
+            //engine.AddObject(shot);
         }
 
         static void Main()
@@ -33,12 +33,17 @@
             Engine gameEngine = new Engine(renderer, keyboard);
             keyboard.OnLeftPressed += (sender, eventInfo) =>
             {
-                gameEngine.MovePlayerRacketLeft();
+                gameEngine.MovePlayerAircraftLeft();
             };
 
             keyboard.OnRightPressed += (sender, eventInfo) =>
             {
-                gameEngine.MovePlayerRacketRight();
+                gameEngine.MovePlayerAircraftRight();
+            };
+
+            keyboard.OnActionPressed += (sender, eventInfo) =>
+            {
+                gameEngine.AircraftShoot();
             };
 
             

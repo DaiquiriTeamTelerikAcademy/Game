@@ -1,8 +1,13 @@
 ﻿namespace Game.Common.Player
 {
+    using System.Collections.Generic;
+
+    using Game.Common;
+
     public class PlayerAircraft : GameObject
     {
         public new const string CollisionGroupString = "aircraft";
+        private bool shotFired = false;
 
         public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
 
@@ -33,6 +38,26 @@
 
         public override void Move()
         {
+        }
+
+        public void Shoot()
+        {
+            this.ProduceObjects();
+        }
+        public void Fire()
+        {
+            this.shotFired = true;
+        }
+
+        public override List<GameObject> ProduceObjects()
+        {
+            List<GameObject> producedObjects = new List<GameObject>();
+            if (shotFired)
+            {
+                producedObjects.Add(new Shot(new MatrixCoords(this.TopLeft.Row, this.TopLeft.Col + 3),new MatrixCoords(-1,0)));
+                shotFired = false;
+            }
+            return producedObjects;
         }
     }
 }

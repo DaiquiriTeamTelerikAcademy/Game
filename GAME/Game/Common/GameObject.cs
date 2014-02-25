@@ -96,5 +96,10 @@ namespace Game.Common
 
             return profile;
         }
+
+        public virtual List<GameObject> ProduceObjects()
+        {
+            return new List<GameObject>();
+        }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Common\ObjectTypeEnum.cs" />
     <Compile Include="Common\Player\PlayerAircraft.cs" />
     <Compile Include="Common\Player\Shot.cs" />
+    <Compile Include="Common\RandomGenerator.cs" />
     <Compile Include="Common\StartScreen.cs" />
     <Compile Include="Executable\SpaceBattleMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

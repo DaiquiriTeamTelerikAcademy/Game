@@ -4,7 +4,7 @@
     {
         public new const string CollisionGroupString = "big bomb";
 
-        public BigBomb(MatrixCoords topLeft, char[,] body, MatrixCoords speed) : base(topLeft, new char[,] { { '*', '*', '*' } },speed) { }
+        public BigBomb(MatrixCoords topLeft,MatrixCoords speed) : base(topLeft, new char[,] { { '*', '*', '*' } },speed) { }
 
         public override string GetCollisionGroupString()
         {
