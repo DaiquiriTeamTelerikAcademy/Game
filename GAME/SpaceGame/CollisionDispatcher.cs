@@ -1,5 +1,10 @@
-﻿using System.Collections.Generic;
-namespace Game.Common
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SpaceGame
 {
     public static class CollisionDispatcher
     {
@@ -53,17 +58,17 @@ namespace Game.Common
 
                 List<string> hitByMovingCollisionGroups = new List<string>();
 
-                if(verticalIndex != -1)
+                if (verticalIndex != -1)
                 {
                     hitByMovingCollisionGroups.Add(staticObjects[verticalIndex].GetCollisionGroupString());
                 }
 
-                if(horizontalIndex != -1)
+                if (horizontalIndex != -1)
                 {
                     hitByMovingCollisionGroups.Add(staticObjects[horizontalIndex].GetCollisionGroupString());
                 }
 
-                if(diagonalIndex != -1)
+                if (diagonalIndex != -1)
                 {
                     hitByMovingCollisionGroups.Add(staticObjects[diagonalIndex].GetCollisionGroupString());
                 }

@@ -1,15 +1,17 @@
-﻿namespace Game.Common.Player
+﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SpaceGame
 {
-    using Game.Common;
-    using Game.Common.Enemy;
-
-    using System.Collections.Generic;
-
     public class Shot : MovingObject
     {
         public new const string CollisionGroupString = "shot";
 
-        public Shot(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '|' } },speed) { }
+        public Shot(MatrixCoords topLeft, MatrixCoords speed) : base(topLeft, new char[,] { { '|' } }, speed) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
@@ -26,8 +28,8 @@
             this.IsDestroyed = false;
         }
 
-        
 
-        
+
+
     }
 }

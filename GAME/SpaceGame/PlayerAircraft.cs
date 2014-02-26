@@ -1,17 +1,18 @@
-﻿namespace Game.Common.Player
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SpaceGame
 {
-    using System.Collections.Generic;
-
-    using Game.Common;
-    using Game.Common.Enemy;
-
     public class PlayerAircraft : GameObject
     {
         public new const string CollisionGroupString = "aircraft";
         private bool shotFired = false;
 
         public PlayerAircraft(MatrixCoords topLeft)
-             : base(topLeft, new char[,] {  {' ',' ',' ',' ',' ',' ','/','\\',' ',' ',' ',' ',' '},
+            : base(topLeft, new char[,] {  {' ',' ',' ',' ',' ',' ','/','\\',' ',' ',' ',' ',' '},
                                             {' ',' ',' ',' ',' ','|','|','|','|',' ',' ',' ',' '},
                                             {' ',' ',' ',' ',' ','|','|','|','|',' ',' ',' ',' '},
                                             {' ','/','-','-','-',' ', '/', '\\','-','-','-','\\',' '},
@@ -43,15 +44,15 @@
                 this.topLeft.Col--;
                 return;
             }
-            
+
         }
 
         public void MoveRight()
         {
             if (this.TopLeft.Col <= SpaceBattleMain.WorldCols - 14)
             {
-                this.topLeft.Col++;    
-            }           
+                this.topLeft.Col++;
+            }
         }
 
         public override void Move()
@@ -72,7 +73,7 @@
             List<GameObject> producedObjects = new List<GameObject>();
             if (shotFired)
             {
-                producedObjects.Add(new Shot(new MatrixCoords(this.TopLeft.Row, this.TopLeft.Col + 6),new MatrixCoords(-1,0)));
+                producedObjects.Add(new Shot(new MatrixCoords(this.TopLeft.Row, this.TopLeft.Col + 6), new MatrixCoords(-1, 0)));
                 shotFired = false;
             }
             return producedObjects;

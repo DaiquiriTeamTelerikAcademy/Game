@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Common
+namespace SpaceGame
 {
-    public abstract class GameObject : IRenderable,ICollidable
+    public abstract class GameObject : IRenderable, ICollidable
     {
         public const string CollisionGroupString = "object";//definirano deistvie pri udar
         protected MatrixCoords topLeft;

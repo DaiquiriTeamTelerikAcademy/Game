@@ -1,9 +1,11 @@
-﻿namespace Game.Common.Enemy
-{
-    using Game;
-    using Game.Common;
-    using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace SpaceGame
+{
     public class EnemyShip : GameObject
     {
         public new const string CollisionGroupString = "enemyShip";
@@ -14,7 +16,7 @@
                                           { ' ',' ',' ',' ',' ','_','/',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','\\','_',' ',' ',' ',' ',' '},
                                           { ' ',' ','_','_','/',' ','/','/','/','/','/','/','/','/','/','/','/',' ',' ',' ',' ',' ',' ',' ','(',')','(',')','(',')','(',')','(',')','(',')',' ',' ',' ',' ',' ',' ',' ',' ','\\','\\','\\','\\','\\','\\','\\','\\','\\','\\','\\',' ','\\','_','_',' ',' '},
                                           { ' ','/','(',')','(',')','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','(',')','(',')','\\',' '},
-                                          { '/','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','\\'}, }) { }                                                                             
+                                          { '/','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','\\'}, }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)// s kogo moga da se sblaskam
         {
@@ -40,11 +42,11 @@
             List<GameObject> producedObjects = new List<GameObject>();
             int randomSmallBomb = RandomGenerator.Generator.Next(0, 200);
             int randomBigBomb = RandomGenerator.Generator.Next(0, 100);
-            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0,65);
-            int randomPositionBigBomb = RandomGenerator.Generator.Next(0,65);
+            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0, 65);
+            int randomPositionBigBomb = RandomGenerator.Generator.Next(0, 65);
             if (randomSmallBomb % 10 == 0 && randomSmallBomb % 2 == 0)
             {
-                producedObjects.Add(new SmallBomb(new MatrixCoords(this.TopLeft.Row + 6, randomPositionSmallBomb),new MatrixCoords(1,0)));
+                producedObjects.Add(new SmallBomb(new MatrixCoords(this.TopLeft.Row + 6, randomPositionSmallBomb), new MatrixCoords(1, 0)));
             }
             if (randomSmallBomb % 3 == 0 && randomSmallBomb % 5 == 0)
             {
