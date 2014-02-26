@@ -9,7 +9,11 @@
         public new const string CollisionGroupString = "aircraft";
         private bool shotFired = false;
 
-        public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
+         private static char[,] airCraftBody = 
+        {
+            { '^', '^', '^', '^', '^', '^', '^', '^', }
+        };
+        public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, airCraftBody) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
