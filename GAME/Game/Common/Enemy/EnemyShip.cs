@@ -7,7 +7,11 @@
     {
         public new const string CollisionGroupString = "enemy ship";
 
-        public EnemyShip(MatrixCoords topLeft) : base(topLeft, new char[,] { { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', } }) { }
+       private static char[,] enemyShipBody = 
+        {
+            { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', }
+        };
+        public EnemyShip(MatrixCoords topLeft) : base(topLeft, enemyShipBody) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)// s kogo moga da se sblaskam
         {
