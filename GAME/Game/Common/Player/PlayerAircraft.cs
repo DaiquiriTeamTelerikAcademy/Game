@@ -11,6 +11,11 @@
 
         public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
 
+
+        public PlayerAircraft(MatrixCoords topLeft, System.ConsoleColor airCraftColor)
+            : base(topLeft, airCraftBody, airCraftColor)
+        {
+        }
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
             return otherCollisionGroupString == "big bomb" || otherCollisionGroupString == "small bomb";
