@@ -82,8 +82,27 @@
             this.aircraft.Fire();
         }
 
+        public void ConectController() 
+        {
+            userInterface.OnLeftPressed += (sender, eventInfo) =>
+            {
+                this.MovePlayerAircraftLeft();
+            };
+
+            userInterface.OnRightPressed += (sender, eventInfo) =>
+            {
+                this.MovePlayerAircraftRight();
+            };
+
+            userInterface.OnActionPressed += (sender, eventInfo) =>
+            {
+                this.AircraftShoot();
+            };
+        }
+
         public virtual void Run()
         {
+            ConectController();
             while (true)
             {
                 this.renderer.RenderAll();//narisuvai kadar

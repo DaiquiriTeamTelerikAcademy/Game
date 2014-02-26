@@ -9,7 +9,16 @@
         public new const string CollisionGroupString = "aircraft";
         private bool shotFired = false;
 
-        public PlayerAircraft(MatrixCoords topLeft) : base(topLeft, new char[,] { { '^', '^', '^', '^', '^', '^', '^', '^', } }) { }
+        public PlayerAircraft(MatrixCoords topLeft)
+             : base(topLeft, new char[,] {  {' ',' ',' ',' ',' ',' ','/','\\',' ',' ',' ',' ',' '},
+                                            {' ',' ',' ',' ',' ','|','|','|','|',' ',' ',' ',' '},
+                                            {' ',' ',' ',' ',' ','|','|','|','|',' ',' ',' ',' '},
+                                            {' ','/','-','-','-',' ', '/', '\\','-','-','-','\\',' '},
+                                            {'/','_','_','_','_',' ', '|', '|','_','_', '_','_','\\'},
+                                            {' ',' ',' ',' ',' ','|', '|', '|','|', ' ', ' ',' ',' '},
+                                            {' ',' ',' ',' ',' ','|', '|', '|','|', ' ', ' ',' ',' '},
+                                            {' ',' ',' ',' ','/', '/', '|', '|', '\\', '\\', ' ',' ',' '},
+                                            {' ',' ',' ','/','_', '_', '/', '\\', '_', '_', '\\',' ',' '}, }) { }
 
         public override bool CanCollideWith(string otherCollisionGroupString)
         {

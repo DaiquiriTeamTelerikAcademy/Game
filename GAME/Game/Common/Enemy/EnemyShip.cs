@@ -1,5 +1,6 @@
 ﻿namespace Game.Common.Enemy
 {
+    using Game;
     using Game.Common;
     using System.Collections.Generic;
 
@@ -7,7 +8,13 @@
     {
         public new const string CollisionGroupString = "enemy ship";
 
-        public EnemyShip(MatrixCoords topLeft) : base(topLeft, new char[,] { { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', } }) { }
+        public EnemyShip(MatrixCoords topLeft)
+            : base(topLeft, new char[,] { { ' ',' ',' ',' ',' ',' ',' ',' ','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_',' ',' ',' ',' ',' ',' ',' ',' '},
+                                          { ' ',' ',' ',' ',' ',' ',' ','/',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','\\',' ',' ',' ',' ',' ',' ',' '},
+                                          { ' ',' ',' ',' ',' ','_','/',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','\\','_',' ',' ',' ',' ',' '},
+                                          { ' ',' ','_','_','/',' ','/','/','/','/','/','/','/','/','/','/','/',' ',' ',' ',' ',' ',' ',' ','(',')','(',')','(',')','(',')','(',')','(',')',' ',' ',' ',' ',' ',' ',' ',' ','\\','\\','\\','\\','\\','\\','\\','\\','\\','\\','\\',' ','\\','_','_',' ',' '},
+                                          { ' ','/','(',')','(',')','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','|','(',')','(',')','\\',' '},
+                                          { '/','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','\\'}, }) { }                                                                             
 
         public override bool CanCollideWith(string otherCollisionGroupString)// s kogo moga da se sblaskam
         {
@@ -33,15 +40,15 @@
             List<GameObject> producedObjects = new List<GameObject>();
             int randomSmallBomb = RandomGenerator.Generator.Next(0, 200);
             int randomBigBomb = RandomGenerator.Generator.Next(0, 100);
-            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0, 20);
-            int randomPositionBigBomb = RandomGenerator.Generator.Next(0, 20);
+            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0,65);
+            int randomPositionBigBomb = RandomGenerator.Generator.Next(0,65);
             if (randomSmallBomb % 10 == 0 && randomSmallBomb % 2 == 0)
             {
-                producedObjects.Add(new SmallBomb(new MatrixCoords(this.TopLeft.Row + 1, randomPositionSmallBomb),new MatrixCoords(1,0)));
+                producedObjects.Add(new SmallBomb(new MatrixCoords(this.TopLeft.Row + 6, randomPositionSmallBomb),new MatrixCoords(1,0)));
             }
             if (randomSmallBomb % 3 == 0 && randomSmallBomb % 5 == 0)
             {
-                producedObjects.Add(new BigBomb(new MatrixCoords(this.TopLeft.Row + 1, randomPositionBigBomb), new MatrixCoords(1, 0)));
+                producedObjects.Add(new BigBomb(new MatrixCoords(this.TopLeft.Row + 6, randomPositionBigBomb), new MatrixCoords(1, 0)));
             }
             return producedObjects;
         }

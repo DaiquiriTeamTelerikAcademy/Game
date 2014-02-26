@@ -50,6 +50,7 @@
     <Compile Include="Common\Enemy\SmallBomb.cs" />
     <Compile Include="Common\Engine.cs" />
     <Compile Include="Common\GameObject.cs" />
+    <Compile Include="Common\GameObjectEnumeration.cs" />
     <Compile Include="Common\GameOverScreen.cs" />
     <Compile Include="Common\IColidable.cs" />
     <Compile Include="Common\KeyboardInput.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Common\Player\Shot.cs" />
     <Compile Include="Common\RandomGenerator.cs" />
     <Compile Include="Common\StartScreen.cs" />
+    <Compile Include="Common\WindowsSettings.cs" />
     <Compile Include="Executable\SpaceBattleMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

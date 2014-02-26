@@ -6,49 +6,40 @@
     using Game.Common;
     using Game.Common.Player;
 
-    public class Program
+    public class SpaceBattleMain
     {
-        const int WorldRows = 20;
-        const int WorldCols = 20;
+        const int WorldRows = 40;
+        const int WorldCols = 65;
 
         static void Initialize(Engine engine)
         {
             int startRow = 0;
             int startCol = 0;
-            //int endCol = WorldCols - 2;
 
-            EnemyShip ship = new EnemyShip(new MatrixCoords(startRow, startCol));
+            EnemyShip ship = new EnemyShip(new MatrixCoords(startRow,startCol));
             engine.AddObject(ship);
-            PlayerAircraft aircraft = new PlayerAircraft(new MatrixCoords(WorldRows - 1, WorldCols / 2));
+            PlayerAircraft aircraft = new PlayerAircraft(new MatrixCoords(WorldRows -10, WorldCols / 2));
             engine.AddObject(aircraft);
-            //Shot shot = new Shot(new MatrixCoords(15, 5), new MatrixCoords(-1, 0));
-            //shot.Move();
-            //engine.AddObject(shot);
         }
 
         static void Main()
         {
-            IRenderer renderer = new ConsoleRenderer(WorldRows, WorldCols);
-            IUserInput keyboard = new KeyboardInput();
-            Engine gameEngine = new Engine(renderer, keyboard);
-            keyboard.OnLeftPressed += (sender, eventInfo) =>
+            WindowsSettings.Initialize();
+            StartScreen.Initialize();
+            ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+                    
+            if (pressedKey.Key == ConsoleKey.Enter)
             {
-                gameEngine.MovePlayerAircraftLeft();
-            };
-
-            keyboard.OnRightPressed += (sender, eventInfo) =>
-            {
-                gameEngine.MovePlayerAircraftRight();
-            };
-
-            keyboard.OnActionPressed += (sender, eventInfo) =>
-            {
-                gameEngine.AircraftShoot();
-            };
-
-            
-            Initialize(gameEngine);
-            gameEngine.Run();
+                Console.Clear();
+                
+                WindowsSettings.Initialize();
+                IRenderer renderer = new ConsoleRenderer(WorldRows, WorldCols);
+                IUserInput keyboard = new KeyboardInput();
+                Engine gameEngine = new Engine(renderer, keyboard);
+                Initialize(gameEngine);
+                gameEngine.Run();    
+            }
+                      
         }
     }
 }

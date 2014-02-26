@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Common.Enemy
+﻿namespace Game.Common.Enemy
 {
+    using Game.Common.Player;
     public class Bomb : MovingObject
     {
         public Bomb(MatrixCoords topLeft, char[,] body, MatrixCoords speed) : base(topLeft, body,speed) { }
