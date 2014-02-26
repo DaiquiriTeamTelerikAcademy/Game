@@ -23,8 +23,8 @@
 
         static void Main()
         {
-            Console.BufferHeight = Console.WindowHeight = WorldRows;
-            Console.BufferWidth = Console.WindowWidth = WorldCols;
+            //Console.BufferHeight = Console.WindowHeight = WorldRows;
+            //Console.BufferWidth = Console.WindowWidth = WorldCols;
             //WindowsSettings.Initialize();
             StartScreen.Initialize();
             ConsoleKeyInfo pressedKey = Console.ReadKey(true);

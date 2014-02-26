@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-namespace Game.Common
+﻿namespace Game.Common
 {
+    using System.Collections.Generic;
+
     public static class CollisionDispatcher
     {
         public static void HandleCollisions(List<MovingObject> movingObjects, List<GameObject> staticObjects)

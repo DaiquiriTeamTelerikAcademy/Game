@@ -5,9 +5,7 @@
 
     public class Bomb : MovingObject
     {
-        public Bomb(MatrixCoords topLeft, char[,] body, MatrixCoords speed) : base(topLeft, body,speed) { }
-
-        
+        public Bomb(MatrixCoords topLeft, char[,] body, MatrixCoords speed) : base(topLeft, body,speed) { }       
 
         public override void RespondToCollision(CollisionData collisionData)
         {

@@ -4,21 +4,18 @@ namespace Game.Common
 {
     public class ConsoleRenderer : IRenderer
     {
-        int renderContextMatrixRows;//kolko redove e konzolata
+        int renderContextMatrixRows;
         int renderContextMatrixCols;
-        char[,] renderContextMatrix;//pazi matrica s tova kakvo e narisuvano na conzolata
-
-        public ConsoleRenderer(int visibleConsoleRows, int visibleConsoleCols)//konstuktura ni setva kolko golqma da bade matricata
+        char[,] renderContextMatrix;//keep matrix with the objects in the console
+        public ConsoleRenderer(int visibleConsoleRows, int visibleConsoleCols)//constructor set the size of the console
         {
             renderContextMatrix = new char[visibleConsoleRows, visibleConsoleCols];
-
             this.renderContextMatrixRows = renderContextMatrix.GetLength(0);
             this.renderContextMatrixCols = renderContextMatrix.GetLength(1);
-
             this.ClearQueue();
         }
 
-        public void EnqueueForRendering(IRenderable obj)//vzema edin obekt i go palni v matricata
+        public void EnqueueForRendering(IRenderable obj)//take one object and full it in the matrix
         {
             char[,] objImage = obj.GetImage();
 
@@ -43,7 +40,7 @@ namespace Game.Common
             }
         }
 
-        public void RenderAll()//palni matricata na na6iq obekt v stringbuilder i go otpe4atva na konzolata 
+        public void RenderAll()//full matrix with our object in stringbuilder and print it on the console
         {
             Console.SetCursorPosition(0, 0);
 

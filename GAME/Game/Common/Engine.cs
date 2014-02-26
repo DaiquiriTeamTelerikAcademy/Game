@@ -7,7 +7,7 @@
     public class Engine
     {
         IRenderer renderer;
-        IUserInput userInterface;//dava dostap do kontrolite
+        IUserInput userInterface;//give access to the controls
         List<GameObject> allObjects;
         List<MovingObject> movingObjects;
         List<GameObject> staticObjects;
@@ -82,7 +82,7 @@
             this.aircraft.Fire();
         }
 
-        public void ConectController() 
+        public void ConectController()
         {
             userInterface.OnLeftPressed += (sender, eventInfo) =>
             {
@@ -105,36 +105,35 @@
             ConectController();
             while (true)
             {
-                this.renderer.RenderAll();//narisuvai kadar
+                this.renderer.RenderAll();//draw frame
 
-                System.Threading.Thread.Sleep(100);//iz4akai 0.5sec
+                System.Threading.Thread.Sleep(100);//wait 0.5sec
 
-                this.userInterface.ProcessInput();//proverqva dali e natisnata nqkoq strelka , strelba i ako e si svar6i rabotata
+                this.userInterface.ProcessInput();//check if is pressed arrow,space and if is do the appropriate job
 
-                this.renderer.ClearQueue();//za4isti bufera
+                this.renderer.ClearQueue();//clear buffer
 
                 foreach (var obj in this.allObjects)
                 {
-                    obj.Move();//pridviji obekta na kadeto e tragnal
-                    this.renderer.EnqueueForRendering(obj);//narisuvai obekta
+                    obj.Move();//move the object
+                    this.renderer.EnqueueForRendering(obj);//draw the object
                 }
 
                 CollisionDispatcher.HandleCollisions(this.movingObjects, this.staticObjects);
-                List<GameObject> producedObjects = new List<GameObject>();//gleda dali ima prod. obekti
+                List<GameObject> producedObjects = new List<GameObject>();//check if it has produced objects
                 foreach (var obj in this.allObjects)
                 {
                     producedObjects.AddRange(obj.ProduceObjects());
                 }
 
-                this.allObjects.RemoveAll(obj => obj.IsDestroyed);//iztriva obektite koito sa ubiti
+                this.allObjects.RemoveAll(obj => obj.IsDestroyed);//delete murdered objects
                 this.movingObjects.RemoveAll(obj => obj.IsDestroyed);
                 this.staticObjects.RemoveAll(obj => obj.IsDestroyed);
 
-                foreach (var obj in producedObjects)//dobavq produciranite obekti
-                {
+                foreach (var obj in producedObjects)//add producuded objects                {
                     this.AddObject(obj);
-                }
             }
         }
     }
 }
+

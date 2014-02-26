@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Common
+﻿namespace Game.Common
 {
+    using System.Collections.Generic;
+
     public abstract class GameObject : IRenderable,ICollidable
     {
-        public const string CollisionGroupString = "object";//definirano deistvie pri udar
+        public const string CollisionGroupString = "object";
+
         protected MatrixCoords topLeft;
-        public MatrixCoords TopLeft//poziciq
+        public MatrixCoords TopLeft//position
         {
             get
             {
@@ -19,15 +16,15 @@ namespace Game.Common
 
             protected set
             {
-                this.topLeft = new MatrixCoords(value.Row, value.Col);//vra6ta nov obekt za da se zapazi enkapsulaciqta
+                this.topLeft = new MatrixCoords(value.Row, value.Col);//return a new object to keep encapsulation
             }
         }
 
-        protected char[,] body;//risunka na obekta
+        protected char[,] body;//draw of object
 
-        public bool IsDestroyed { get; protected set; }//dali obekta e udaren
+        public bool IsDestroyed { get; protected set; }//keep if the object is hitted
 
-        protected GameObject(MatrixCoords topLeft, char[,] body)//TODO: string type
+        protected GameObject(MatrixCoords topLeft, char[,] body)
         {
             this.TopLeft = topLeft;
             int imageRows = body.GetLength(0);
@@ -36,12 +33,12 @@ namespace Game.Common
             this.IsDestroyed = false;
         }
 
-        public abstract void Move();//ne6toto koeto pravi sledva6toto dvijenie    //TODO: dali da vra6ta List<GameObject>
+        public abstract void Move();//do this action on move  
 
-        public virtual void RespondToCollision(CollisionData collisionData)//kazva na obekta 4e e udaren i 4e trqbva da reagira
+        public virtual void RespondToCollision(CollisionData collisionData)//inform object that is hitted and the object react
         {
         }
-        public virtual bool CanCollideWith(string otherCollisionGroupString) //tova ne mi trqbva
+        public virtual bool CanCollideWith(string otherCollisionGroupString)
         {
             return GameObject.CollisionGroupString == otherCollisionGroupString;
         }
@@ -51,7 +48,7 @@ namespace Game.Common
             return GameObject.CollisionGroupString;
         }
 
-        char[,] CopyBodyMatrix(char[,] matrixToCopy)//vzema tqloto na matrica i go kopira TODO : public
+        char[,] CopyBodyMatrix(char[,] matrixToCopy)//take body of matrix and copy it
         {
             int rows = matrixToCopy.GetLength(0);
             int cols = matrixToCopy.GetLength(1);
@@ -74,7 +71,7 @@ namespace Game.Common
             return this.TopLeft;
         }
 
-        public char[,] GetImage()////vra6ta kak izglejda obekta
+        public char[,] GetImage()//return how it looks the object
         {
             return this.CopyBodyMatrix(this.body);
         }

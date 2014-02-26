@@ -2,8 +2,8 @@
 {
     public interface IRenderable
     {
-        MatrixCoords GetTopLeft();//vzima koordinati na obekta   
+        MatrixCoords GetTopLeft();//take coord of objects 
 
-        char[,] GetImage();//vra6ta kak izglejda obecta
+        char[,] GetImage();
     }
 }

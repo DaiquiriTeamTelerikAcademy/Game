@@ -24,10 +24,6 @@
         public override void RespondToCollision(CollisionData collisionData)//kurshuma iz4ezva
         {
             this.IsDestroyed = false;
-        }
-
-        
-
-        
+        }    
     }
 }

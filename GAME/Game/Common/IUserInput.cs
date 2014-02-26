@@ -10,6 +10,6 @@
 
         event EventHandler OnActionPressed;
 
-        void ProcessInput();//proverqva dali i natisnato nalqvo ili nadqsno i ako e producira sabitieto OnRightPressed ....
+        void ProcessInput();//check what is pressed and produce action
     }
 }

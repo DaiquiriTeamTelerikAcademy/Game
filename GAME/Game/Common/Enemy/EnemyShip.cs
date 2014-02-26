@@ -31,7 +31,7 @@
             return EnemyShip.CollisionGroupString;
         }
 
-        public override void Move()// TODO: da vra6ta prazen spisak
+        public override void Move()
         {
         }
 
@@ -40,8 +40,8 @@
             List<GameObject> producedObjects = new List<GameObject>();
             int randomSmallBomb = RandomGenerator.Generator.Next(0, 200);
             int randomBigBomb = RandomGenerator.Generator.Next(0, 100);
-            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0,65);
-            int randomPositionBigBomb = RandomGenerator.Generator.Next(0,65);
+            int randomPositionSmallBomb = RandomGenerator.Generator.Next(0,45);
+            int randomPositionBigBomb = RandomGenerator.Generator.Next(0,45);
             if (randomSmallBomb % 10 == 0 && randomSmallBomb % 2 == 0)
             {
                 producedObjects.Add(new SmallBomb(new MatrixCoords(this.TopLeft.Row + 6, randomPositionSmallBomb),new MatrixCoords(1,0)));

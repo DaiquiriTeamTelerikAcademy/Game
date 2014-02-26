@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Common
+﻿namespace Game.Common
 {
     public interface IRenderer
     {
-        void EnqueueForRendering(IRenderable obj);//kazva ei tova trqbva da se narisuva v sledwa6tiq kadar
+        void EnqueueForRendering(IRenderable obj);//says what has to be drawn in next frame
 
-        void RenderAll();//risuva kadara v bufera i posle go mesti na konzolata
+        void RenderAll();//draw frame in buffer and after move it on console
 
-        void ClearQueue();//za4istva prostranstvoto za noviq kadyr,t.e pravi prazen list
+        void ClearQueue();//clear space for new frame and make empty list
     }
 }

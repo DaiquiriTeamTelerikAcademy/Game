@@ -50,7 +50,6 @@
     <Compile Include="Common\Enemy\SmallBomb.cs" />
     <Compile Include="Common\Engine.cs" />
     <Compile Include="Common\GameObject.cs" />
-    <Compile Include="Common\GameObjectEnumeration.cs" />
     <Compile Include="Common\GameOverScreen.cs" />
     <Compile Include="Common\ICollidable.cs" />
     <Compile Include="Common\IObjectProducer.cs" />
@@ -60,7 +59,6 @@
     <Compile Include="Common\IUserInput.cs" />
     <Compile Include="Common\MatrixCoords.cs" />
     <Compile Include="Common\MovingObject.cs" />
-    <Compile Include="Common\ObjectTypeEnum.cs" />
     <Compile Include="Common\Player\PlayerAircraft.cs" />
     <Compile Include="Common\Player\Shot.cs" />
     <Compile Include="Common\RandomGenerator.cs" />

@@ -5,7 +5,6 @@
 
     using Game;
 
-
     public class StartScreen
     {
         public static void Initialize()
