@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace Game.Common
 {
     public abstract class GameObject : IRenderable,IColidable
-    {
+    {        
         public const string CollisionGroupString = "object";//definirano deistvie pri udar
+
+        public ConsoleColor color;
         protected MatrixCoords topLeft;
         public MatrixCoords TopLeft//poziciq
         {
@@ -27,6 +29,12 @@ namespace Game.Common
 
         public bool IsDestroyed { get; protected set; }//dali obekta e udaren
 
+        protected GameObject(MatrixCoords topLeft, char[,] body,
+            ConsoleColor color)
+            :this(topLeft, body)
+        {
+            this.color = color;
+        }
         protected GameObject(MatrixCoords topLeft, char[,] body)//TODO: string type
         {
             this.TopLeft = topLeft;
@@ -103,3 +111,4 @@ namespace Game.Common
         }
     }
 }
+
