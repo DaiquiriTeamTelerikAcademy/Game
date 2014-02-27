@@ -15,5 +15,17 @@
         {
             return new MatrixCoords(a.Row + b.Row, a.Col + b.Col);
         }
+
+        public override bool Equals(object obj)
+        {
+            MatrixCoords objAsMatrixCoords = obj as MatrixCoords;
+
+            return objAsMatrixCoords.Row == this.Row && objAsMatrixCoords.Col == this.Col;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Row.GetHashCode() * 7 + this.Col;
+        }
     }
 }

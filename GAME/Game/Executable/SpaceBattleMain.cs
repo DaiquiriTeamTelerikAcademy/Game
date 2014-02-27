@@ -15,8 +15,14 @@
         {
             int startRow = 0;
             int startCol = 0;
-            EnemyShip ship = new EnemyShip(new MatrixCoords(startRow,startCol));
+            EnemyShip ship = new EnemyShip(new MatrixCoords(startRow, startCol), new MatrixCoords(0,0));
             engine.AddObject(ship);
+            for (int i = startCol; i < WorldCols - 4; i++)
+            {
+                EnemyShipDestructivePart currBlock = new EnemyShipDestructivePart(new MatrixCoords(startRow + 6, i));
+                engine.AddObject(currBlock);
+            }
+
             PlayerAircraft aircraft = new PlayerAircraft(new MatrixCoords(WorldRows -10, WorldCols / 2));
             engine.AddObject(aircraft);
         }
