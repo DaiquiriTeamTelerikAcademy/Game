@@ -21,6 +21,11 @@
                                             {' ',' ',' ',' ','/', '/', '|', '|', '\\', '\\', ' ',' ',' '},
                                             {' ',' ',' ','/','_', '_', '/', '\\', '_', '_', '\\',' ',' '}, }) { }
 
+
+        public PlayerAircraft(MatrixCoords topLeft, System.ConsoleColor airCraftColor)
+            : base(topLeft, airCraftBody, airCraftColor)
+        {
+        }
         public override bool CanCollideWith(string otherCollisionGroupString)
         {
             return otherCollisionGroupString == "big bomb" || otherCollisionGroupString == "small bomb";
